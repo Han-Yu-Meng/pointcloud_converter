@@ -1,0 +1,22 @@
+name: "pointcloud_converter"
+version: "0.1.0"
+description: "Navigation utilities package for converting PCL msg and ROS msg"
+maintainers:
+  - name: "fins"
+    email: "fins@sjtu.edu.cn"
+depends:
+  PCL: "system"
+  sensor_msgs: "system"
+  nav_msgs: "system"
+  pcl_conversions: "system"
+  livox_msg: "1.0.1"
+
+recipes:
+  livox_msg:
+    git: "https://github.com/Han-Yu-Meng/livox_msg.git"
+    build_system: "cmake"
+    versions:
+      "1.0.1":
+        tag: "v1.0.1"
+licenses:
+  - "MIT"
