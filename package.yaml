@@ -19,4 +19,4 @@ recipes:
       "1.0.1":
         tag: "v1.0.1"
 licenses:
-  - "MIT"
+  - "MPL-2.0"
