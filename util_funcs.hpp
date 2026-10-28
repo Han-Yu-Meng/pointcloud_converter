@@ -11,7 +11,7 @@
 #include <fins/functional_node.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <sensor_msgs/msg/imu.hpp>
-#include <livox_driver2/msg/custom_msg.hpp>
+#include <livox_ros_driver2/msg/custom_msg.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -22,7 +22,7 @@ using fins::Output;
 using fins::Parameter;
 
 static auto livox_lidar_convert_node = Function("Livox2PCL",
-  [](Input<livox_driver2::msg::CustomMsg> &lidar_msg,
+  [](Input<livox_ros_driver2::msg::CustomMsg> &lidar_msg,
     Output<pcl::PointCloud<pcl::PointXYZI>::Ptr> &cloud_out) {
     if (lidar_msg->point_num == 0) return;
     auto cloud = std::make_shared<pcl::PointCloud<pcl::PointXYZI>>();
@@ -48,7 +48,7 @@ static auto livox_lidar_convert_node = Function("Livox2PCL",
 
 
 static auto livox_lidar_ros_convert_node = Function("Livox2ROS",
-  [](Input<livox_driver2::msg::CustomMsg> &cloud_in,
+  [](Input<livox_ros_driver2::msg::CustomMsg> &cloud_in,
     Output<sensor_msgs::msg::PointCloud2> &lidar_msg) {
     if (cloud_in->point_num == 0) return;
     pcl::PointCloud<pcl::PointXYZI> cloud;
